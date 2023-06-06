@@ -1,6 +1,7 @@
 import inventoryManagment.Ingredient;
 import inventoryManagment.IngredientList;
 import inventoryManagment.InventoryMain;
+import menuManagement.MenuMain;
 import tableManagement.Table;
 import tableManagement.TableList;
 import tableManagement.TableMain;
@@ -35,14 +36,16 @@ public class Main {
                     Welcome to your restaurant. What would you like to use?
                        1.) Inventory
                        2.) Tables
-                       3.) Quit
+                       3.) Menu
+                       4.) Quit
                     """);
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice){
                 case 1 -> InventoryMain.runManager(ingredientList);
                 case 2 -> TableMain.runTable(tableList);
-                case 3 -> loop = false;
+                case 3 -> MenuMain.runMenu();
+                case 4 -> loop = false;
             }
         }
 
