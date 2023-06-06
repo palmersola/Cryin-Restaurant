@@ -10,7 +10,7 @@ public class LoginSystem {
     public LoginSystem() {
         users = new HashMap<>();
 
-        // Add sample users (replace with your database or storage logic)
+
         User staffUser1 = new User("Ong", "ongpw", Role.STAFF);
         users.put(staffUser1.getUsername(), staffUser1);
 
@@ -20,7 +20,7 @@ public class LoginSystem {
         User staffUser3 = new User("Palmer", "palmerpw", Role.STAFF);
         users.put(staffUser3.getUsername(), staffUser3);
 
-        User staffUser4 = new User("Shatt", "Shattpw", Role.STAFF);
+        User staffUser4 = new User("Shatt", "shattpw", Role.STAFF);
         users.put(staffUser4.getUsername(), staffUser4);
 
         User managerUser = new User("Alexander", "managerpw", Role.MANAGER);
