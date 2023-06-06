@@ -34,7 +34,9 @@ public class Main {
         rize.addOrder(new Order(2, Map.of("Milkshake", 3), 75.0));
 
         while(loop){
+
             Scanner scanner = new Scanner(System.in);
+
             boolean manager = UserMain.runLogin(rize.getLogin());
             System.out.println("""
                     Welcome to your restaurant. What would you like to use?
@@ -55,6 +57,7 @@ public class Main {
                 case 5 -> ReportMain.runReport(rize);
                 case 6 -> loop = false;
                 default -> System.out.println("Invalid choice. Please try again.");
+
             }
         }
 
