@@ -11,9 +11,12 @@ public class IngredientList {
         this.list = new HashMap<>();
     }
 
-
     public void addIngredient(Ingredient item){
        this.list.put(item.getName(),item);
+    }
+
+    public void getIngredient(String item){
+        this.list.get(item);
     }
 
     public void printQuantity(String name){
