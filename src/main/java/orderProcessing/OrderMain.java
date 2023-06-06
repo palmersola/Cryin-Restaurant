@@ -1,10 +1,14 @@
-package org.example;
+package orderProcessing;
+
+import orderProcessing.Order;
+import orderProcessing.OrderService;
+import orderProcessing.OrderStatus;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class OrderMain {
-    public static void main(String[] args) {
+    public static void runOrder(OrderService orderList) {
         OrderService system = new OrderService();
 
         // Creating orders
