@@ -15,7 +15,7 @@ import java.util.Scanner;
 //test
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         boolean loop = true;
         Restaurant rize = new Restaurant("Rize N' Cryin");
 
@@ -34,6 +34,9 @@ public class Main {
         rize.addOrder(new Order(2, Map.of("Milkshake", 3), 75.0));
 
         while(loop){
+
+            Scanner scanner = new Scanner(System.in);
+
             boolean manager = UserMain.runLogin(rize.getLogin());
             System.out.println("""
                     Welcome to your restaurant. What would you like to use?
@@ -49,10 +52,12 @@ public class Main {
             switch (choice){
                 case 1 -> InventoryMain.runManager(rize.getIngredients());
                 case 2 -> TableMain.runTable(rize.getTables());
-                case 3 -> MenuMain.runMenu();
+                case 3 -> MenuMain.runMenu(rize);
                 case 4 -> OrderMain.runOrder(rize.getOrders());
                 case 5 -> ReportMain.runReport(rize);
                 case 6 -> loop = false;
+                default -> System.out.println("Invalid choice. Please try again.");
+
             }
         }
 

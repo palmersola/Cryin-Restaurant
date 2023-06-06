@@ -1,4 +1,8 @@
 package menuManagement;
+import inventoryManagment.Ingredient;
+import inventoryManagment.IngredientList;
+import salesReport.Restaurant;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -16,6 +20,7 @@ public class Menu {
         this.menuFilePath = menuFilePath;
     }
 
+
     public void addMenuItem(MenuItem menuItem) {
         menuItems.add(menuItem);
         saveMenuItemsToFile();
@@ -27,7 +32,7 @@ public class Menu {
     }
 
     public void editMenuItem(MenuItem menuItem, String newName, String newDescription, int newPreparationTime,
-                             double newPrice, List<String> newIngredients) {
+                             double newPrice, List<Ingredient> newIngredients) {
         menuItem.setName(newName);
         menuItem.setDescription(newDescription);
         menuItem.setPreparationTime(newPreparationTime);
@@ -51,9 +56,9 @@ public class Menu {
                 writer.newLine();
                 writer.write(String.valueOf(menuItem.getPrice()));
                 writer.newLine();
-                List<String> ingredients = menuItem.getIngredients();
-                for (String ingredient : ingredients) {
-                    writer.write(ingredient);
+                List<Ingredient> ingredients = menuItem.getIngredients();
+                for (Ingredient ingredient : ingredients) {
+                    writer.write(ingredient.getName());
                     writer.newLine();
                 }
                 writer.write("done");
@@ -64,7 +69,8 @@ public class Menu {
         }
     }
 
-    public void loadMenuItemsFromFile() {
+    public void loadMenuItemsFromFile(Restaurant res) {
+        IngredientList ing = res.getIngredients();
         try (BufferedReader reader = new BufferedReader(new FileReader(menuFilePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -73,9 +79,9 @@ public class Menu {
                 int preparationTime = Integer.parseInt(reader.readLine());
                 double price = Double.parseDouble(reader.readLine());
 
-                List<String> ingredients = new ArrayList<>();
+                List<Ingredient> ingredients = new ArrayList<>();
                 while (!(line = reader.readLine()).equalsIgnoreCase("done")) {
-                    ingredients.add(line);
+                    ingredients.add(ing.getIngredient(line));
                 }
 
                 MenuItem menuItem = new MenuItem(name, description, preparationTime, price, ingredients);

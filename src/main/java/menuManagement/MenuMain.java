@@ -1,5 +1,7 @@
 package menuManagement;
+import inventoryManagment.Ingredient;
 import inventoryManagment.IngredientList;
+import salesReport.Restaurant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +10,15 @@ import java.util.Scanner;
 public class MenuMain {
     private static Menu menu;
 
-    public static void runMenu() {
-        menu = new Menu("src/main/java/menuManagement/menuItems.txt");
-        menu.loadMenuItemsFromFile(); // Load menu items from file at the beginning
-
-        Scanner scanner = new Scanner(System.in);
+    public static void runMenu(Restaurant res) {
+        menu = res.getMenu();
+        menu.loadMenuItemsFromFile(res); // Load menu items from file at the beginning
 
         // Main menu loop
-        boolean exit = false;
-        while (!exit) {
+        boolean exit = true;
+        while (exit) {
+            Scanner scanner = new Scanner(System.in);
+
             System.out.println("""
                     Menu for Restaurant Rize 'N' Crying
                        1.) Add Menu Item
@@ -26,24 +28,33 @@ public class MenuMain {
                        5.) Exit
                     """);
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice;
+            if (scanner.hasNextLine()) {
+                choice = Integer.parseInt(scanner.nextLine());
+            } else {
+                // Handle the case when no input is available
+                System.out.println("No input found. Please try again.");
+                scanner.close();
+                continue; // Continue to the next iteration of the loop
+            }
+            scanner.close();
+
 
             switch (choice) {
-                case 1 -> addMenuItem(scanner);
+                case 1 -> addMenuItem(scanner, res);
                 case 2 -> removeMenuItem(scanner);
-                case 3 -> editMenuItem(scanner);
+                case 3 -> editMenuItem(scanner, res);
                 case 4 -> viewMenu();
-                case 5 -> exit = true;
+                case 5 -> exit = false;
                 default -> System.out.println("Invalid choice. Please try again.");
             }
+            scanner.close();
         }
 
         menu.saveMenuItemsToFile(); // Save menu items to file before exiting
-        scanner.close();
     }
 
-    private static void addMenuItem(Scanner scanner) {
+    private static void addMenuItem(Scanner scanner, Restaurant res) {
         System.out.print("Enter the name of the menu item: ");
         String name = scanner.nextLine();
 
@@ -58,7 +69,7 @@ public class MenuMain {
         double price = scanner.nextDouble();
         scanner.nextLine();
 
-        List<String> ingredients = new ArrayList<>();
+        List<Ingredient> ingredients = new ArrayList<>();
         System.out.println("Enter the ingredients of the menu item (one ingredient per line, enter 'done' to finish):");
         String ingredient;
         while (true) {
@@ -66,7 +77,11 @@ public class MenuMain {
             if (ingredient.equalsIgnoreCase("done")) {
                 break;
             }
-            ingredients.add(ingredient);
+            Ingredient check = res.getIngredients().getIngredient(ingredient);
+            if (check == null) {
+                res.getIngredients().addIngredient(new Ingredient(ingredient, 0));
+            }
+            ingredients.add(res.getIngredients().getIngredient(ingredient));
         }
 
         MenuItem menuItem = new MenuItem(name, description, preparationTime, price, ingredients);
@@ -95,7 +110,7 @@ public class MenuMain {
         }
     }
 
-    private static void editMenuItem(Scanner scanner) {
+    private static void editMenuItem(Scanner scanner, Restaurant res) {
         System.out.print("Enter the name of the menu item to edit: ");
         String name = scanner.nextLine();
 
@@ -123,7 +138,7 @@ public class MenuMain {
             double newPrice = scanner.nextDouble();
             scanner.nextLine();
 
-            List<String> newIngredients = new ArrayList<>();
+            List<Ingredient> newIngredients = new ArrayList<>();
             System.out.println("Enter the new ingredients of the menu item (one ingredient per line, enter 'done' to finish):");
             String ingredient;
             while (true) {
@@ -131,7 +146,7 @@ public class MenuMain {
                 if (ingredient.equalsIgnoreCase("done")) {
                     break;
                 }
-                newIngredients.add(ingredient);
+                newIngredients.add(res.getIngredients().getIngredient(ingredient));
             }
 
             menu.editMenuItem(menuItemToEdit, newName, newDescription, newPreparationTime, newPrice, newIngredients);
@@ -153,10 +168,15 @@ public class MenuMain {
                 System.out.println("Description: " + menuItem.getDescription());
                 System.out.println("Preparation Time: " + menuItem.getPreparationTime());
                 System.out.println("Price: " + menuItem.getPrice());
-                System.out.println("Ingredients: " + menuItem.getIngredients());
+                System.out.println("Ingredients: ");
+                List <Ingredient> list = menuItem.getIngredients();
+                for ( Ingredient ingredient: list) {
+                    System.out.println(ingredient.getName());
+                }
             }
             System.out.println("------------------------");
         }
     }
+
 }
 
