@@ -2,6 +2,7 @@ package salesReport;
 
 import inventoryManagment.Ingredient;
 import inventoryManagment.IngredientList;
+import menuManagement.Menu;
 import orderProcessing.Order;
 import orderProcessing.OrderService;
 import tableManagement.Table;
@@ -9,6 +10,7 @@ import tableManagement.TableList;
 import userLogin.LoginSystem;
 
 public class Restaurant {
+    private Menu menu;
     private String name;
     private LoginSystem login;
     private IngredientList ingredients;
@@ -21,6 +23,11 @@ public class Restaurant {
         this.ingredients = new IngredientList();
         this.tables = new TableList();
         this.orders = new OrderService();
+        this.menu = new Menu("src/main/java/menuManagement/menuItems.txt");
+    }
+
+    public Menu getMenu() {
+        return menu;
     }
 
     public String getName() {
