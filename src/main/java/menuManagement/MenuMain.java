@@ -19,11 +19,11 @@ public class MenuMain {
         while (!exit) {
             System.out.println("""
                     Menu for Restaurant Rize 'N' Crying
-                    1.) Add Menu Item
-                    2.) Remove Menu Item
-                    3.) Edit Menu Item
-                    4.) View Menu
-                    5.) Exit
+                       1.) Add Menu Item
+                       2.) Remove Menu Item
+                       3.) Edit Menu Item
+                       4.) View Menu
+                       5.) Exit
                     """);
 
             int choice = scanner.nextInt();
