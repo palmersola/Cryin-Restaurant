@@ -11,9 +11,12 @@ public class IngredientList {
         this.list = new HashMap<>();
     }
 
-
     public void addIngredient(Ingredient item){
        this.list.put(item.getName(),item);
+    }
+
+    public void getIngredient(String item){
+        this.list.get(item);
     }
 
     public void printQuantity(String name){
@@ -47,9 +50,9 @@ public class IngredientList {
     }
 
     public void addStock(String name){
-        Ingredient item = list.get(name);
-        item.add();
-        this.list.put(item.getName(), item);
+        Ingredient ingredient = list.get(name);
+        ingredient.add();
+        this.list.put(ingredient.getName(), ingredient);
 
     }
 
@@ -60,5 +63,5 @@ public class IngredientList {
 
     }
 
-
+//testtest
 }
