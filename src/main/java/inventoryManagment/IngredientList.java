@@ -50,9 +50,9 @@ public class IngredientList {
     }
 
     public void addStock(String name){
-        Ingredient item = list.get(name);
-        item.add();
-        this.list.put(item.getName(), item);
+        Ingredient ingredient = list.get(name);
+        ingredient.add();
+        this.list.put(ingredient.getName(), ingredient);
 
     }
 
