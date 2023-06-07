@@ -1,8 +1,1 @@
-Burger
-Delicious burger
-20
-9.99
-Bun
-Beef patty
-Cheese
-done
+
