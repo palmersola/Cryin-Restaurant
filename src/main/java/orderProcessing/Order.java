@@ -1,20 +1,14 @@
 package orderProcessing;
-import java.util.HashMap;
+
 import java.util.Map;
 
-enum OrderStatus {
-    INQUEUE,
-    PREPARING,
-    READY
-}
-
-class Order {
+public class Order {
     private int orderId;
-    private Map<String,Integer> items;
+    private Map<String, Integer> items;
     private double totalPrice;
     private OrderStatus status;
 
-    public Order(int orderId, Map<String,Integer> items, double totalPrice) {
+    public Order(int orderId, Map<String, Integer> items, double totalPrice) {
         this.orderId = orderId;
         this.items = items;
         this.totalPrice = totalPrice;
@@ -25,7 +19,7 @@ class Order {
         return orderId;
     }
 
-    public Map<String,Integer> getItems() {
+    public Map<String, Integer> getItems() {
         return items;
     }
 

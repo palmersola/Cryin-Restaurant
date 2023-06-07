@@ -2,7 +2,7 @@ package orderProcessing;
 import java.util.HashMap;
 import java.util.Map;
 
-class OrderService {
+public class OrderService {
     private Map<Integer, Order> orders;
 
     public OrderService() {
