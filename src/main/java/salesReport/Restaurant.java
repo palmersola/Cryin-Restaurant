@@ -24,7 +24,6 @@ public class Restaurant {
         this.ingredients = new IngredientList();
         this.tables = new TableList();
         this.orders = new OrderService();
-
         this.menu = new Menu("src/main/java/menuManagement/menuItems.txt");
     }
 

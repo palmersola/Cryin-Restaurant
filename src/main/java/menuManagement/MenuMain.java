@@ -28,17 +28,7 @@ public class MenuMain {
                        5.) Exit
                     """);
 
-            int choice;
-            if (scanner.hasNextLine()) {
-                choice = Integer.parseInt(scanner.nextLine());
-            } else {
-                // Handle the case when no input is available
-                System.out.println("No input found. Please try again.");
-                scanner.close();
-                continue; // Continue to the next iteration of the loop
-            }
-            scanner.close();
-
+            int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1 -> addMenuItem(scanner, res);
@@ -48,9 +38,7 @@ public class MenuMain {
                 case 5 -> exit = false;
                 default -> System.out.println("Invalid choice. Please try again.");
             }
-            scanner.close();
         }
-
         menu.saveMenuItemsToFile(); // Save menu items to file before exiting
     }
 
