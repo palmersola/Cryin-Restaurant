@@ -45,7 +45,7 @@ public class Main {
                        3.) Menu
                        4.) Orders
                        5.) Create Report
-                       5.) Quit
+                       6.) Quit
                     """);
             int choice = Integer.parseInt(scanner.nextLine());
 
