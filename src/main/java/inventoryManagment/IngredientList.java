@@ -19,9 +19,16 @@ public class IngredientList {
         return this.list.get(item);
     }
 
-    public void printQuantity(String name){
+    public int printQuantity(String name){
         Ingredient item = list.get(name);
         System.out.println(this.list.get(item.getName()).getQuantity());
+        return this.list.get(item.getName()).getQuantity();
+    }
+
+    public String printName(String name){
+        Ingredient item = list.get(name);
+        System.out.println(this.list.get(item.getName()).getName());
+        return this.list.get(item.getName()).getName();
     }
 
     public void printAll(){
