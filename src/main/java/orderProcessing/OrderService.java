@@ -19,7 +19,7 @@ class OrderService {
             order.setStatus(status);
             System.out.println("Order " + orderId + " updated to status: " + status);
         } else {
-            System.out.println("Order not found!");
+            System.out.println("Order not found.");
         }
     }
 
@@ -28,7 +28,7 @@ class OrderService {
         if (order != null) {
             System.out.println(order);
         } else {
-            System.out.println("Order not found!");
+            System.out.println("Order not found.");
         }
     }
 }

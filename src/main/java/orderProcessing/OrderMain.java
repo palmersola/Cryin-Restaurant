@@ -1,4 +1,4 @@
-package org.example;
+package orderProcessing;
 
 import java.util.HashMap;
 import java.util.Map;

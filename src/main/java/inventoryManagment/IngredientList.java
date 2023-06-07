@@ -15,13 +15,21 @@ public class IngredientList {
        this.list.put(item.getName(),item);
     }
 
-    public void getIngredient(String item){
+    public short getIngredient(String item){
         this.list.get(item);
+        return 0;
     }
 
-    public void printQuantity(String name){
+    public int printQuantity(String name){
         Ingredient item = list.get(name);
         System.out.println(this.list.get(item.getName()).getQuantity());
+        return this.list.get(item.getName()).getQuantity();
+    }
+
+    public String printName(String name){
+        Ingredient item = list.get(name);
+        System.out.println(this.list.get(item.getName()).getName());
+        return this.list.get(item.getName()).getName();
     }
 
     public void printAll(){
