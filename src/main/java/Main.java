@@ -9,6 +9,9 @@ import tableManagement.Table;
 import tableManagement.TableMain;
 import userLogin.UserMain;
 
+import menuManagement.MenuItem;
+import java.util.List;
+
 import java.util.Map;
 import java.util.Scanner;
 
@@ -23,6 +26,18 @@ public class Main {
         rize.addIngredient(new Ingredient("Beans", 576));
         rize.addIngredient(new Ingredient("Cheese", 4));
         rize.addIngredient(new Ingredient("Beef", 10));
+        // Add ingredients
+        rize.addIngredient(new Ingredient("Bun", 100));
+        rize.addIngredient(new Ingredient("Beef Patty", 50));
+        rize.addIngredient(new Ingredient("Lettuce", 50));
+        rize.addIngredient(new Ingredient("Tomato", 50));
+        rize.addIngredient(new Ingredient("Cheese", 50));
+        rize.addIngredient(new Ingredient("Pickles", 50));
+        rize.addIngredient(new Ingredient("Dough", 100));
+        rize.addIngredient(new Ingredient("Tomato Sauce", 100));
+        rize.addIngredient(new Ingredient("Mozzarella Cheese", 100));
+
+
 
         rize.addTable( new Table( 1,2));
         rize.addTable( new Table( 2,4));

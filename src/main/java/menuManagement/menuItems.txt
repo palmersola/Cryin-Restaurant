@@ -1,0 +1,19 @@
+Burger
+Delicious burger with beef patty
+15
+9.99
+Bun
+Beef Patty
+Lettuce
+Tomato
+Cheese
+Pickles
+done
+Pizza
+Classic cheese pizza
+20
+12.99
+Dough
+Tomato Sauce
+Mozzarella Cheese
+done
