@@ -15,9 +15,8 @@ public class IngredientList {
        this.list.put(item.getName(),item);
     }
 
-    public short getIngredient(String item){
-        this.list.get(item);
-        return 0;
+    public Ingredient getIngredient(String item){
+        return this.list.get(item);
     }
 
     public int printQuantity(String name){
