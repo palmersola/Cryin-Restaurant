@@ -9,15 +9,15 @@ import java.util.Scanner;
 
 public class MenuMain {
     private static Menu menu;
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void runMenu(Restaurant res) {
         menu = res.getMenu();
-        menu.loadMenuItemsFromFile(res); // Load menu items from file at the beginning
-
+//        menu.loadMenuItemsFromFile(res); // Load menu items from file at the beginning
         // Main menu loop
         boolean exit = true;
         while (exit) {
-            Scanner scanner = new Scanner(System.in);
+//            Scanner scanner = new Scanner(System.in);
 
             System.out.println("""
                     Menu for Restaurant Rize 'N' Crying
@@ -31,9 +31,9 @@ public class MenuMain {
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
-                case 1 -> addMenuItem(scanner, res);
-                case 2 -> removeMenuItem(scanner);
-                case 3 -> editMenuItem(scanner, res);
+                case 1 -> addMenuItem(res);
+                case 2 -> removeMenuItem();
+                case 3 -> editMenuItem(res);
                 case 4 -> viewMenu();
                 case 5 -> exit = false;
                 default -> System.out.println("Invalid choice. Please try again.");
@@ -42,7 +42,7 @@ public class MenuMain {
         menu.saveMenuItemsToFile(); // Save menu items to file before exiting
     }
 
-    private static void addMenuItem(Scanner scanner, Restaurant res) {
+    private static void addMenuItem(Restaurant res) {
         System.out.print("Enter the name of the menu item: ");
         String name = scanner.nextLine();
 
@@ -77,7 +77,8 @@ public class MenuMain {
         System.out.println("Menu item added successfully.");
     }
 
-    private static void removeMenuItem(Scanner scanner) {
+
+    private static void removeMenuItem() {
         System.out.print("Enter the name of the menu item to remove: ");
         String name = scanner.nextLine();
 
@@ -98,7 +99,7 @@ public class MenuMain {
         }
     }
 
-    private static void editMenuItem(Scanner scanner, Restaurant res) {
+    private static void editMenuItem(Restaurant res) {
         System.out.print("Enter the name of the menu item to edit: ");
         String name = scanner.nextLine();
 

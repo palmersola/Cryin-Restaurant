@@ -1,31 +1,20 @@
 import inventoryManagment.Ingredient;
 import inventoryManagment.InventoryMain;
 import menuManagement.MenuMain;
-import orderProcessing.Order;
 import orderProcessing.OrderMain;
-import salesReport.ReportMain;
+import salesReport.DailySalesReport;
 import salesReport.Restaurant;
 import tableManagement.Table;
 import tableManagement.TableMain;
-import userLogin.UserMain;
-
-import menuManagement.MenuItem;
-import java.util.List;
-
 import java.util.Map;
 import java.util.Scanner;
 
-//test
 public class Main {
     public static void main(String[] args) {
 
         boolean loop = true;
         Restaurant rize = new Restaurant("Rize N' Cryin");
 
-        rize.addIngredient(new Ingredient("Rice", 45));
-        rize.addIngredient(new Ingredient("Beans", 576));
-        rize.addIngredient(new Ingredient("Cheese", 4));
-        rize.addIngredient(new Ingredient("Beef", 10));
         // Add ingredients
         rize.addIngredient(new Ingredient("Bun", 100));
         rize.addIngredient(new Ingredient("Beef Patty", 50));
@@ -37,22 +26,22 @@ public class Main {
         rize.addIngredient(new Ingredient("Tomato Sauce", 100));
         rize.addIngredient(new Ingredient("Mozzarella Cheese", 100));
 
-
-
         rize.addTable( new Table( 1,2));
         rize.addTable( new Table( 2,4));
         rize.addTable( new Table( 3,6));
         rize.addTable( new Table( 4,8));
-        rize.addTable( new Table( 5,50));
+        rize.addTable( new Table( 5,10));
 
-        rize.addOrder(new Order(1, Map.of("Chicken Nuggies", 2, "Fires", 1), 150.0));
-        rize.addOrder(new Order(2, Map.of("Milkshake", 3), 75.0));
+        rize.getMenu().loadMenuItemsFromFile(rize);
+
+        rize.addOrder(1, Map.of("Pizza", 2, "Burger", 1), 2);
+        rize.addOrder(2, Map.of("Pizza", 3), 3);
 
         while(loop){
 
             Scanner scanner = new Scanner(System.in);
 
-            boolean manager = UserMain.runLogin(rize.getLogin());
+           // boolean manager = UserMain.runLogin(rize.getLogin());
             System.out.println("""
                     Welcome to your restaurant. What would you like to use?
                        1.) Inventory
@@ -68,13 +57,12 @@ public class Main {
                 case 1 -> InventoryMain.runManager(rize.getIngredients());
                 case 2 -> TableMain.runTable(rize.getTables());
                 case 3 -> MenuMain.runMenu(rize);
-                case 4 -> OrderMain.runOrder(rize.getOrders());
-                case 5 -> ReportMain.runReport(rize);
+                case 4 -> OrderMain.runOrder(rize);
+                case 5 -> DailySalesReport.runReport(rize);
                 case 6 -> loop = false;
                 default -> System.out.println("Invalid choice. Please try again.");
 
             }
         }
-
     }
 }

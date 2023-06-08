@@ -14,6 +14,10 @@ public class TableList {
         this.list.put(table.getTableId(), table);
     }
 
+    public Table getTable(int id) {
+        return list.get(id);
+    }
+
     public void assignCustomerById(int tableId, String customerName) {
         for (Map.Entry<Integer, Table> table : this.list.entrySet()) {
             if (table.getKey() == tableId) {
@@ -97,5 +101,13 @@ public class TableList {
     public void printAllTableStatus(){
         for (Map.Entry<Integer, Table> table : this.list.entrySet())
             printTableStatus(table.getValue());
+    }
+
+    public String totalRevenue(){
+        StringBuilder all = new StringBuilder();
+        for (Map.Entry<Integer, Table> table : this.list.entrySet())
+            all.append("\n   Table ").append(table.getValue().getTableId())
+                    .append(": $").append(table.getValue().getTableRevenue());
+        return "Table Sales Report:" + all ;
     }
 }

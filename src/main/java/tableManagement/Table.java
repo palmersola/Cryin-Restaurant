@@ -7,6 +7,7 @@ public class Table {
     private final int tableSize;
     private String status;
     private String assignedCustomer;
+    private double tableRevenue;
 
     public Table(int tableId, int tableSize) {
         this.tableId = tableId;
@@ -39,6 +40,14 @@ public class Table {
         } else {
             System.out.println("Table " + tableId + " is not available for reservation.");
         }
+    }
+
+    public void setTableRevenue(double price) {
+        this.tableRevenue += price;
+    }
+
+    public double getTableRevenue() {
+        return tableRevenue;
     }
 
     public Integer getTableId() {
