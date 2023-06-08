@@ -8,8 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Menu {
     private List<MenuItem> menuItems;
@@ -39,6 +38,14 @@ public class Menu {
         menuItem.setPrice(newPrice);
         menuItem.setIngredients(newIngredients);
         saveMenuItemsToFile();
+    }
+    
+    public MenuItem getItem(String item){
+        MenuItem found = null;
+        for(MenuItem food: menuItems){
+            if(Objects.equals(food.getName(), item)) found = food;
+        }
+        return found;
     }
 
     public List<MenuItem> getMenuItems() {
@@ -91,5 +98,14 @@ public class Menu {
             System.out.println("Error loading menu items from file: " + e.getMessage());
             System.exit(-1);
         }
+    }
+
+    public String displayPopular(){
+        List<MenuItem> items = menuItems;
+        items.sort(Comparator.comparing(MenuItem::getTimesOrdered).reversed());
+
+        StringBuilder all = new StringBuilder();
+        items.forEach(item -> all.append(item.getTimesOrdered()));
+        return "Most Popular Items:\n" + all;
     }
 }

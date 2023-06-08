@@ -24,11 +24,19 @@ public class OrderService {
     }
 
     public void displayOrderStatus(int orderId) {
-        Order order = orders.get(orderId);
-        if (order != null) {
-            System.out.println(order);
-        } else {
-            System.out.println("Order not found.");
-        }
+
+//        Order order = orders.get(orderId);
+//        if (order != null) {
+//            System.out.println(order);
+//        } else {
+//            System.out.println("Order not found.");
+//        }
+    }
+
+
+    public String displayAll() {
+        StringBuilder all = new StringBuilder();
+        this.orders.forEach((id, order) -> all.append(order.toString()));
+        return "\nDetailed Orders:" + all;
     }
 }
