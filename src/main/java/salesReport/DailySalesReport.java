@@ -1,12 +1,9 @@
 package salesReport;
 
-import orderProcessing.OrderService;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Map;
 import java.util.Scanner;
 
 public class DailySalesReport {

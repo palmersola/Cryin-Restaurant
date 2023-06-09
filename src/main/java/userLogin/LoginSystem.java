@@ -17,7 +17,7 @@ public class LoginSystem {
         User staffUser2 = new User("Leyla", "leylapw", Role.STAFF);
         users.put(staffUser2.getUsername(), staffUser2);
 
-        User staffUser3 = new User("Palmer", "palmerpw", Role.STAFF);
+        User staffUser3 = new User("Palmer", "palmerpw", Role.MANAGER);
         users.put(staffUser3.getUsername(), staffUser3);
 
         User staffUser4 = new User("Shatt", "shattpw", Role.STAFF);

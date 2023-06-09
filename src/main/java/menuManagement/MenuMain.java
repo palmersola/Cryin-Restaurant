@@ -1,6 +1,6 @@
 package menuManagement;
+
 import inventoryManagment.Ingredient;
-import inventoryManagment.IngredientList;
 import salesReport.Restaurant;
 
 import java.util.ArrayList;
@@ -13,12 +13,9 @@ public class MenuMain {
 
     public static void runMenu(Restaurant res) {
         menu = res.getMenu();
-//        menu.loadMenuItemsFromFile(res); // Load menu items from file at the beginning
-        // Main menu loop
         boolean exit = true;
-        while (exit) {
-//            Scanner scanner = new Scanner(System.in);
 
+        while (exit) {
             System.out.println("""
                     Menu for Restaurant Rize 'N' Crying
                        1.) Add Menu Item

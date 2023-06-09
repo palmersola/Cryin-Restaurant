@@ -75,7 +75,7 @@ public class TableList {
 
         for (Map.Entry<Integer, Table> table : this.list.entrySet()) {
         Table currentTable = table.getValue();
-            if (currentTable.getStatus().equals("Available") && currentTable.getTableSize() == tableSize) {
+            if (currentTable.getStatus().equals("Available") && currentTable.getTableSize() >= tableSize) {
                 selectedTable = currentTable;
                 break;
             }

@@ -13,6 +13,10 @@ public class OrderService {
         orders.put(order.getOrderId(), order);
     }
 
+    public Order getOrder(int id){
+        return orders.get(id);
+    }
+
     public void updateOrderStatus(int orderId, OrderStatus status) {
         Order order = orders.get(orderId);
         if (order != null) {
@@ -25,12 +29,12 @@ public class OrderService {
 
     public void displayOrderStatus(int orderId) {
 
-//        Order order = orders.get(orderId);
-//        if (order != null) {
-//            System.out.println(order);
-//        } else {
-//            System.out.println("Order not found.");
-//        }
+        Order order = orders.get(orderId);
+        if (order != null) {
+            System.out.println(order);
+        } else {
+            System.out.println("Order not found.");
+        }
     }
 
 
