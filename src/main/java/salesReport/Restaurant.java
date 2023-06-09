@@ -10,7 +10,8 @@ import tableManagement.Table;
 import tableManagement.TableList;
 import userLogin.LoginSystem;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Restaurant {
 
@@ -78,6 +79,7 @@ public class Restaurant {
             foods.put(food, v);
             total[0] += food.getPrice()*v;  // Access the mutable value from the array
             food.setTimesOrdered(v);
+            food.getIngredients().forEach(item -> item.use(v));
         });
 
         this.report.setTotalRevenue(total[0]);

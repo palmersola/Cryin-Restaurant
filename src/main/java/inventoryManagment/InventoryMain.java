@@ -32,13 +32,13 @@ public class InventoryMain {
                     System.out.println("Input ingredient name");
                     list.printQuantity(scanner.nextLine());
                 }
-//                case 5 -> {
-//                    System.out.println("Input ingredient name");
-//                    String name = scanner.nextLine();
-//                    System.out.println("How much stock are you adding?");
-//                    int amount = Integer.parseInt(scanner.nextLine());
-//                    list.addStock(name, amount);
-//                }
+                case 5 -> {
+                    System.out.println("Input ingredient name");
+                    String name = scanner.nextLine();
+                    System.out.println("How much stock are you adding?");
+                    int amount = Integer.parseInt(scanner.nextLine());
+                    list.addStock(name, amount);
+                }
                 case 6 -> loop = false;
             }
         }

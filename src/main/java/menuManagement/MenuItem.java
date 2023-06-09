@@ -1,8 +1,8 @@
 package menuManagement;
+
 import inventoryManagment.Ingredient;
 
 import java.util.List;
-import java.util.Map;
 
 public class MenuItem {
     private String name;
@@ -25,40 +25,40 @@ public class MenuItem {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getPreparationTime() {
         return preparationTime;
     }
 
-    public void setPreparationTime(int preparationTime) {
-        this.preparationTime = preparationTime;
-    }
-
     public double getPrice() {
         return price;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
     public String getTimesOrdered() {
         return "   " + this.name + ": " + this.timesOrdered + "\n";
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPreparationTime(int preparationTime) {
+        this.preparationTime = preparationTime;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setIngredients(List<Ingredient> ingredients) {

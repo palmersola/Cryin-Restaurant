@@ -1,17 +1,17 @@
-Daily Sales Report - 2023-06-08
+Daily Sales Report - 2023-06-09
 -------------------------------------
-Total Revenue: $74.94
+Total Revenue: $156.87
 
 Most Popular Items:
-   Pizza: 5
-   Burger: 1
+   Pizza: 9
+   Burger: 4
 
 Table Sales Report:
    Table 1: $0.0
-   Table 2: $35.97
+   Table 2: $65.94
    Table 3: $38.97
    Table 4: $0.0
-   Table 5: $0.0
+   Table 5: $51.96
 
 Detailed Orders:
 Order ID: 1
@@ -20,11 +20,25 @@ Items:
   Burger: 1
   Pizza: 2
 Total Price: $35.97
-Status: INQUEUE
+Status: READY
 
 Order ID: 2
 Table 3
 Items: 
   Pizza: 3
 Total Price: $38.97
+Status: INQUEUE
+
+Order ID: 3
+Table 2
+Items: 
+  Burger: 3
+Total Price: $29.97
+Status: INQUEUE
+
+Order ID: 4
+Table 5
+Items: 
+  Pizza: 4
+Total Price: $51.96
 Status: INQUEUE
